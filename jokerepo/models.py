@@ -4,11 +4,14 @@ from django.db import models
 
 
 class Joke(models.Model):
+    situation = models.CharField(max_length=50)
     joke = models.CharField(max_length=400)
     pub_date = models.DateTimeField('date published')
-    tag = models.CharField(max_length=3)
-    rank = models.CharField(max_length=3, blank=True, null=True) 	
-
+    tag = models.CharField(max_length=4)
+    rank = models.CharField(max_length=4, blank=True, null=True) 	
+    
+    def __unicode__(self):  # Python 3: def __str__(self):
+        return self.situation
     def __unicode__(self):  # Python 3: def __str__(self):
         return self.joke
     def was_published_recently(self):

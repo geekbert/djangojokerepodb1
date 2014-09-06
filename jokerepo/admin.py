@@ -5,8 +5,8 @@ from django.contrib import admin
 from jokerepo.models import Joke
 
 class JokeAdmin(admin.ModelAdmin): 
-    fields = ['joke', 'tag', 'pub_date', 'rank'] 
-    list_display = ('joke', 'pub_date', 'tag', 'rank')
+    fields = ['situation', 'joke', 'tag', 'pub_date', 'rank'] 
+    list_display = ('situation', 'joke', 'pub_date', 'tag', 'rank')
     list_filter = ['tag'] 
     search_fields = ['joke', 'tag']
 

@@ -7,8 +7,8 @@ from django.http import HttpResponse
 from jokerepo.models import Joke
 
 def index(request):
-    latest_joke_list = Joke.objects.order_by('-pub_date')[:5]
-    output = ', '.join([j.joke for j in latest_joke_list])
+    latest_joke_list = Joke.objects.order_by('-pub_date')[:100]
+    output = '<br/>'.join([j.situation+" - "+j.joke for j in latest_joke_list])
     return HttpResponse(output)
 
 #    context = {'latest_joke_list': latest_joke_list}
