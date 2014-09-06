@@ -2,11 +2,14 @@ from django.db import models
 
 # Create your models here.
 
+import datetime
+
 
 class Joke(models.Model):
     situation = models.CharField(max_length=50)
     joke = models.CharField(max_length=400)
-    pub_date = models.DateTimeField('date published')
+    #pub_date = models.DateTimeField('date published')
+    pub_date = models.DateField(blank=True, default=datetime.date.today)
     tag = models.CharField(max_length=4)
     rank = models.CharField(max_length=4, blank=True, null=True) 	
     
