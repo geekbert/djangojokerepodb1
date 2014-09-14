@@ -49,3 +49,17 @@ def add_joke(request):
     # Bad form (or form details), no form supplied...
     # Render the form with error messages (if any).
     return render_to_response('jokerepo/add_joke.html', {'form': form}, context)
+
+
+import random
+
+def quiz(request):
+    max = len(Joke.objects.all()) 
+    r = random.randint(0,max-1) 
+
+    #latest_joke_list = Joke.objects.order_by('-pub_date')[:100]
+    #output = '<br/>'.join([j.situation+" - "+j.joke+" - "+j.tag for j in latest$
+    
+    output = Joke.objects.all()[r].situation 
+
+    return HttpResponse(output)
