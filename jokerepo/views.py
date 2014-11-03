@@ -3,16 +3,10 @@ from django.shortcuts import render, get_object_or_404
 # Create your views here.
 
 from django.http import HttpResponse
-
 from jokerepo.models import Joke
-
 from jokerepo.forms import JokeForm 
-
 from django.template import RequestContext
-
 from django.shortcuts import render_to_response
-
-
 
 def index(request):
     latest_joke_list = Joke.objects.order_by('-pub_date')[:100]
