@@ -1,0 +1,86 @@
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Quiz</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+    </head>
+
+    <body>
+        <h1>Quiz</h1>
+
+        <form method="get" action="/jokerepo/quiz/">
+
+            {% csrf_token %}
+            {% for key, value in output.items %}
+            {{ key }}
+            {% endfor %}
+
+            <br>
+            
+            
+           <br>
+           <br>
+           <input type="submit" name="question" value="Next" />
+           <br>
+
+     </form>
+     <br><br>
+
+     <p id="message"></p>
+
+     <script type="text/javascript">
+         //var data_from_django = " {{ my_data|safe }} ";
+         //var a = Object.getOwnPropertyNames(data_from_django);
+         //var b = Object.keys(data_from_django);
+         // alert(b);
+         // console.log(b);
+         // button.onclick= function () { alert('hello!'); };
+     </script>
+     
+          <button type = "button" onclick="myFunction()">Show answer (JS)</button>
+
+     <script>
+       function myFunction() {
+
+       var data_from_django = "{{ output }}";
+       var index = data_from_django.indexOf(":");
+       var id = data_from_django.substr(0, index);
+       var text = data_from_django.substr(index + 1);
+       //alert(typeof(text));
+       text = text.replace("u'", "", "gi");
+       text = text.replace("'}", "", "gi");
+       //alert(text);
+               //could apply this approach to entire template
+      //but choose to stick with Python Dict passed over, and then
+      //use javascipt json methods to translate from 1 lang into other
+
+
+      //The JSON.stringify() method converts JS data structure to JSON
+      //data_from_django = JSON.stringify(data_from_django);
+      //data_from_django = JSON.parse(data_from_django);
+
+
+      //var index = data_from_django.indexOf(":");
+      //var id = data_from_django.substr(0, index);
+      //var text = data_from_django.substr(index + 1);
+      //alert(id);
+      //alert(text);
+      document.getElementById("message").innerHTML = text;
+
+      }
+
+      </script>
+      
+
+
+   </body>
+
+/html>
+
+
+       
+     
+     
+     
