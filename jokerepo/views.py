@@ -51,7 +51,7 @@ def quiz(request):
     max = len(Joke.objects.all()) 
     r = random.randint(0,max-1) 
    
-   context = RequestContext(request)
+    context = RequestContext(request)
    
     #latest_joke_list = Joke.objects.order_by('-pub_date')[:100]
     #output = '<br/>'.join([j.situation+" - "+j.joke+" - "+j.tag for j in latest$
