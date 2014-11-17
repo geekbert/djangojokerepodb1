@@ -50,10 +50,20 @@ import random
 def quiz(request):
     max = len(Joke.objects.all()) 
     r = random.randint(0,max-1) 
-
+   
+   context = RequestContext(request)
+   
     #latest_joke_list = Joke.objects.order_by('-pub_date')[:100]
     #output = '<br/>'.join([j.situation+" - "+j.joke+" - "+j.tag for j in latest$
     
-    output = Joke.objects.all()[r].situation 
-
-    return HttpResponse(output)
+    output1 = Joke.objects.all()[r].situation
+    output2 = Joke.objects.all()[r].joke
+    output = {output1:output2}
+    
+    #output = Joke.objects.all()[r].situation 
+    #return HttpResponse(output)
+    
+    return render(request, 'jokerepo/quiz.html', {'output': output})
+    
+    
+    
