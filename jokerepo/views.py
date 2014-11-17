@@ -9,7 +9,7 @@ from django.template import RequestContext
 from django.shortcuts import render_to_response
 
 def index(request):
-    latest_joke_list = Joke.objects.order_by('-pub_date')[:100]
+    latest_joke_list = Joke.objects.order_by('-pub_date')[:10] # to access-protect data
     output = '<br/>'.join([j.situation+" - "+j.joke+" - "+j.tag for j in latest_joke_list])
     return HttpResponse(output)
 
