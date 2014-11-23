@@ -18,7 +18,7 @@ from django.http import HttpResponse
 def export_csv(modeladmin, request, queryset):
     import csv
     from django.utils.encoding import smart_str
-        response = HttpResponse(mimetype='text/csv')
+    response = HttpResponse(mimetype='text/csv')
     response['Content-Disposition'] = 'attachment; filename=mymodel.csv'
     writer = csv.writer(response, csv.excel)
     response.write(u'\ufeff'.encode('utf8')) # optional...Excel needs it to ope$
@@ -29,9 +29,9 @@ def export_csv(modeladmin, request, queryset):
     ])
     for obj in queryset:
         writer.writerow([
-                smart_str(u"ID"),
-        smart_str(u"situation"),
-        smart_str(u"joke"),
+            smart_str(u"ID"),
+            smart_str(u"situation"),
+            smart_str(u"joke"),
     ])
     for obj in queryset:
         writer.writerow([
