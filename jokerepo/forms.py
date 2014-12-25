@@ -4,8 +4,8 @@ from django import forms
 from jokerepo.models import Joke
 
 class JokeForm(forms.ModelForm):
-    situation = forms.CharField(max_length=50, help_text="Situation")
-    joke = forms.CharField(max_length=400, help_text="Joke")
+    situation = forms.CharField(max_length=150, help_text="Situation")
+    joke = forms.CharField(max_length=900, help_text="Joke")
    # pub_date = forms.DateTimeField('date published', help_text= "date")
     tag = forms.CharField(max_length=4, help_text= 'tag')
     rank = forms.CharField(max_length=4, help_text= "rank")
