@@ -6,8 +6,8 @@ import datetime
 
 
 class Joke(models.Model):
-    situation = models.CharField(max_length=50)
-    joke = models.CharField(max_length=400)
+    situation = models.CharField(max_length=150)
+    joke = models.CharField(max_length=900)
     #pub_date = models.DateTimeField('date published')
     pub_date = models.DateField(blank=True, default=datetime.date.today)
     tag = models.CharField(max_length=4)
