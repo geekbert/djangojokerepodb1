@@ -56,6 +56,8 @@ def quiz(request):
     #latest_joke_list = Joke.objects.order_by('-pub_date')[:100]
     #output = '<br/>'.join([j.situation+" - "+j.joke+" - "+j.tag for j in latest$
     
+    # NOTE: the below 2 are queried in quiz.html via key, value in output.items
+    # Q: how to add third attribute TAG ? 
     output1 = Joke.objects.all()[r].situation
     output2 = Joke.objects.all()[r].joke
     output = {output1:output2}
