@@ -43,11 +43,16 @@
 
      <script>
        function myFunction() {
-
+       // NEW 2015 - below seems to auto-convert python list to JS string
        var data_from_django = "{{ output }}";
        var index = data_from_django.indexOf(":");
        var id = data_from_django.substr(0, index);
        var text = data_from_django.substr(index + 1);
+       // NEW 2015 - CONVERT JS STRING INTO JS LIST
+       var jsarray = data_from_django.split(',');
+       var text1 = jsarray[1]; // refer to 2nd element in array
+       
+       
        //alert(typeof(text));
        text = text.replace("u'", "", "gi");
        text = text.replace("'}", "", "gi");
@@ -68,6 +73,9 @@
       //alert(id);
       //alert(text);
       document.getElementById("message").innerHTML = text;
+      // NEW 2015 
+      document.getElementById("message").innerHTML = text1;
+
 
       }
 
