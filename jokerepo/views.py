@@ -60,7 +60,18 @@ def quiz(request):
     # Q: how to add third attribute TAG ? 
     output1 = Joke.objects.all()[r].situation
     output2 = Joke.objects.all()[r].joke
-    output = {output1:output2}
+    output3 = Joke.objects.all()[r].tag
+    output4 = Joke.objects.all()[r].rank
+    # NEW 2015: I AM A DUMMY - BELOW IS BRACKET FOR DICTIONARY - ONLY KEY AND VALUE SENT TO QUIZ.HTML
+    #output = {output1:output4}
+
+    #NEW output using lists as stacks - SUCCESSFULLY SENT TO QUIZ.HTML
+    # KEY WAS TO UNDERSTAND PYTHON DATA TYPES
+    output = []
+    output.append(output1)
+    output.append(output2)
+    output.append(output3)
+    output.append(output4)
     
     #output = Joke.objects.all()[r].situation 
     #return HttpResponse(output)
