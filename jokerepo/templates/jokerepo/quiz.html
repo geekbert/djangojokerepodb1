@@ -13,9 +13,7 @@
         <form method="get" action="/jokerepo/quiz/">
 
             {% csrf_token %}
-            {% for key, value in output.items %}
-            {{ key }}
-            {% endfor %}
+            {{ output.0 }}  ({{ output.2 }})
 
             <br>
             
