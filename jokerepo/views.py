@@ -86,4 +86,4 @@ def quiz(request):
     # {{ my_list.0 }}
     # {{ output }}
 
-
+    # https://docs.djangoproject.com/en/1.8/intro/tutorial03/ 
