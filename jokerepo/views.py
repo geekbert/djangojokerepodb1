@@ -78,5 +78,12 @@ def quiz(request):
     
     return render(request, 'jokerepo/quiz.html', {'output': output})
     
-    
-    
+    # HOW TO REFER TO VIEWS.PY DATA IN QUIZ.HTML 
+    # https://docs.djangoproject.com/en/1.8/topics/templates/ 
+    # Dictionary lookup, attribute lookup and list-index lookups are implemented with a dot notation:
+    # {{ my_dict.key }}
+    # {{ my_object.attribute }}
+    # {{ my_list.0 }}
+    # {{ output }}
+
+
